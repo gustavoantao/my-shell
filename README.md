@@ -20,13 +20,15 @@ It uses Ubuntu as base image and have the following
  kubectl run my-shell -ti --rm --image gustavoantao/my-shell -- bash
  ```
  Or you can push your own image to Docker Hub or another registry and use it.
+ Once you leave your shell session the pod will be automatically terminated (`--rm` option on kubectl command)
 
  If you need to keep the pod running use:
 
  ```
-kubectl run my-shell --image gustavoantao/my-shell
+kubectl run my-shell -ti --image gustavoantao/my-shell -- bash
 
  ```
+ When you leave the shell the pod will keep running in the cluster until you kill it with `kubectl delete pod my-shell`
 
  Copy files from your local to the pod:
 
